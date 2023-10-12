@@ -15,7 +15,7 @@ const updateLinks = () => {
 
         if (url == null || andIdx === -1) {
             continue;
-      }
+        }
 
         // Update url
         videoLink.attributes['href'].value = url.substr(0, andIdx);

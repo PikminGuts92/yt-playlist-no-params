@@ -7,7 +7,7 @@
 // ==/UserScript==
 
 const updateLinks = () => {
-    const videoLinks = document.querySelectorAll('.ytd-playlist-video-renderer > #video-title');
+    const videoLinks = document.querySelectorAll('.ytd-playlist-video-renderer > #video-title:not(.no-params)');
 
     for (const videoLink of videoLinks) {
         const url = videoLink.attributes['href']?.value;
@@ -17,8 +17,9 @@ const updateLinks = () => {
             continue;
         }
 
-        // Update url
+        // Update url + add new class
         videoLink.attributes['href'].value = url.substr(0, andIdx);
+        videoLink.classList.add('no-params');
     }
 };
 
